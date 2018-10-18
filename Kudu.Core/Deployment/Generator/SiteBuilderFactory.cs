@@ -8,7 +8,7 @@ using Kudu.Contracts.Tracing;
 using Kudu.Core.Infrastructure;
 using Kudu.Core.SourceControl;
 using Kudu.Core.Tracing;
-
+using Kudu.Core.Deployment.Generator.Oryx;
 namespace Kudu.Core.Deployment.Generator
 {
     public class SiteBuilderFactory : ISiteBuilderFactory
@@ -174,7 +174,12 @@ namespace Kudu.Core.Deployment.Generator
             }
             else if (IsPythonSite(sourceProjectPath))
             {
-                return new PythonSiteBuilder(_environment, perDeploymentSettings, _propertyProvider, repositoryRoot, projectPath);
+                return new OryxPythonSiteBuilder(
+                    _environment, 
+                    perDeploymentSettings,
+                    _propertyProvider, 
+                    repositoryRoot, 
+                    projectPath);
             }
             else if (IsGoSite(sourceProjectPath))
             {

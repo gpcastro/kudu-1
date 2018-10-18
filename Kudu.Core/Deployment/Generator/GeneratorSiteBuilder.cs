@@ -6,6 +6,7 @@ using Kudu.Contracts.Settings;
 using Kudu.Core.Helpers;
 using Kudu.Core.Tracing;
 
+
 namespace Kudu.Core.Deployment.Generator
 {
     public abstract class GeneratorSiteBuilder : ExternalCommandBuilder
